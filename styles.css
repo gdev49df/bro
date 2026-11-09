@@ -320,11 +320,21 @@ svg { display: block; }
 .social span { color: var(--muted); font-size: 15px; }
 
 /* ---------- CTA band ---------- */
-.cta-card { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; padding: clamp(40px, 6vw, 80px); }
+.cta-card { display: grid; grid-template-columns: 1fr 1fr; gap: 32px clamp(32px, 6vw, 80px); align-items: center; padding: clamp(32px, 5vw, 64px); }
 .cta-card .script { font-size: clamp(40px, 6vw, 72px); color: var(--ink); margin-bottom: 4px; }
 .cta-card h2 { font-size: clamp(48px, 7vw, 96px); margin-bottom: 18px; }
-.cta-card .cta-act { display: flex; justify-content: flex-end; }
+.cta-act { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.cta-act.cta-row { flex-direction: row; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.cta-label { font: 800 14px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; opacity: .75; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips .chip {
+  text-decoration: none; padding: 11px 18px; border-radius: var(--r-pill); font: 800 13px/1 var(--f-body); letter-spacing: .05em;
+  color: var(--ink); border: 1.5px solid rgba(3, 20, 18, .4); background: rgba(3, 20, 18, .08);
+  transition: background .25s, color .25s, border-color .25s, transform .25s var(--ease);
+}
+.chips .chip:hover { background: var(--ink); color: var(--teal); border-color: var(--ink); transform: translateY(-2px); }
 .cta-card:hover { transform: translateY(-6px); }
+.cta-card--compact { grid-template-columns: 1fr; }
 .cta-card--compact h2 { font-size: clamp(36px, 5vw, 64px); }
 
 /* ---------- booking ---------- */
@@ -392,7 +402,6 @@ main { animation: pagein .6s var(--ease) both; }
   .about-grid, .book-grid { grid-template-columns: 1fr; }
   .poster { min-height: 340px; }
   .cta-card { grid-template-columns: 1fr; }
-  .cta-card .cta-act { justify-content: flex-start; }
   .book-form { grid-template-columns: 1fr 1fr; }
   .book-form label:nth-of-type(5) { grid-column: 1 / -1; }
 }
