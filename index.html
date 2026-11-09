@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BRO — компьютерные клубы в Астане, работают 24/7. Бронирование через WhatsApp.">
+<meta name="theme-color" content="#0b0e10">
+<title>BRO — компьютерные клубы в Астане</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="BRO, в начало">BRO<span>.</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav" class="nav">
+      <a href="#clubs">Клубы</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#book">Бронь</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="display hero-title">Играй<br>днём <em>дешевле</em></h1>
+      <div class="hero-row">
+        <div>
+          <p class="lead">Компьютерные клубы в Астане, которые работают 24/7. Бронируйте место за пару сообщений в WhatsApp.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#book">Забронировать</a>
+            <a class="btn btn-ghost" href="#clubs">Выбрать клуб</a>
+          </div>
+        </div>
+        <div class="deal" data-reveal>
+          <div class="big">−50%</div>
+          <div class="note">на дневной пакет</div>
+          <small>Акция действует до 31 октября 2026. Подробности по телефону.</small>
+        </div>
+      </div>
+    </div>
+    <div class="hero-word" aria-hidden="true">BRO</div>
+  </section>
+
+  <section id="clubs" class="block">
+    <div class="wrap">
+      <h2 class="display">Клубы в Астане</h2>
+      <div class="filters" role="group" aria-label="Фильтр клубов">
+        <button class="chip is-active" data-filter="all">Все</button>
+        <button class="chip" data-filter="24">Круглосуточно</button>
+      </div>
+      <ul class="branches">
+        <li class="branch" data-open="24"><strong>Гейдара Алиева, 2</strong><span>24/7</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 2</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 3</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 4</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 5</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 6</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 7</strong><span>[уточнить]</span></li>
+        <li class="branch" data-open="24"><strong>Филиал 8</strong><span>[уточнить]</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="prices" class="block">
+    <div class="wrap">
+      <h2 class="display">Цены</h2>
+      <div class="prices">
+        <article class="price" data-reveal>
+          <h3>Дневной пакет</h3>
+          <p>со скидкой 50% до 31 октября</p>
+          <div class="sum">−50%</div>
+        </article>
+        <article class="price featured" data-reveal>
+          <h3>Ночной пакет</h3>
+          <p>для тех, кто играет до утра</p>
+          <div class="sum">[цена]</div>
+        </article>
+        <article class="price" data-reveal>
+          <h3>Почасовая оплата</h3>
+          <p>для коротких сессий</p>
+          <div class="sum">[цена]</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="block">
+    <div class="wrap">
+      <h2 class="display">Отзывы</h2>
+      <div class="rating" data-reveal>
+        <div class="score" data-count="4.6" data-decimals="1">4.6</div>
+        <p>Средняя оценка по 538 оценкам в 2ГИС.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="block">
+    <div class="wrap">
+      <h2 class="display">Бронь</h2>
+      <form class="book-form" id="bookForm" novalidate>
+        <label>Имя
+          <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>Филиал
+          <select name="club" required>
+            <option value="Гейдара Алиева, 2">Гейдара Алиева, 2</option>
+            <option value="Другой филиал">Другой филиал</option>
+          </select>
+        </label>
+        <label>Дата
+          <input name="date" type="date" required>
+        </label>
+        <label>Время
+          <input name="time" type="time" required>
+        </label>
+        <label>Часов
+          <input name="hours" type="number" min="1" max="12" value="2" required>
+        </label>
+        <button class="btn btn-primary" type="submit">Отправить в WhatsApp</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="contacts" class="block">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Бронирование и вопросы</p>
+        <a class="ph" href="tel:+77713455196">+7 771 345 51 96</a>
+      </div>
+      <div>
+        <p class="eyebrow">Соцсети</p>
+        <a class="ph" href="https://instagram.com/brocyberastana" target="_blank" rel="noopener">@brocyberastana</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap row">
+    <span>© 2026 BRO. Филиалы в Астане.</span>
+    <span>Создано @bauyrzhanov_12_</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
