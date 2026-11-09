@@ -600,3 +600,123 @@ html.leaving .curtain { transform: translateY(0); transition: transform .55s var
   .curtain, .veil, .cursor-glow, .bg-canvas { display: none !important; }
   .js .rise { opacity: 1; }
 }
+
+/* ============================================================
+   mobile: iOS date/time inputs + compact scale
+   ============================================================ */
+.book-form label, .book-form input, .book-form select { min-width: 0; }
+.book-form input, .book-form select { min-height: 52px; max-width: 100%; }
+.book-form input[type="date"], .book-form input[type="time"] {
+  -webkit-appearance: none; appearance: none; display: block; text-align: left; line-height: 1.2;
+}
+.book-form input::-webkit-date-and-time-value { text-align: left; min-height: 1.2em; }
+.book-form input::-webkit-datetime-edit { padding: 0; }
+
+@media (max-width: 640px) {
+  :root { --header-h: 58px; --gap: 12px; --section: 52px; --head-gap: 22px; --r-card: 18px; }
+  body { font-size: 15px; }
+  .wrap { padding: 0 16px; }
+  .lead { font-size: 16px; }
+
+  .brand-word { font-size: 23px; }
+  .brand-city { font-size: 10px; padding-left: 10px; letter-spacing: .18em; }
+  .burger { width: 42px; height: 42px; }
+  .nav a:not(.btn) { padding: 13px 0; font-size: 17px; }
+
+  .btn { padding: 15px 22px; font-size: 12.5px; gap: 10px; }
+  .card { padding: 22px 20px; }
+  .card h3 { font-size: 25px; margin-bottom: 8px; }
+  .icon { width: 42px; height: 42px; border-radius: 12px; margin-bottom: 16px; }
+  .icon svg { width: 21px; height: 21px; }
+  .card .deco { width: 100px; height: 100px; right: -14px; bottom: -14px; }
+
+  .sec-head { gap: 6px; }
+  .sec-head h2 { font-size: clamp(30px, 9vw, 38px); padding-bottom: 14px; }
+  .sec-head p { font-size: 14px; }
+  .sec-head h2::after { height: 3px; }
+  .js .sec-head.reveal.is-in h2::after, .sec-head h2::after { width: 56px; }
+  .js .sec-head.reveal h2::after { width: 0; }
+
+  .hero { padding: 24px 0 32px; }
+  .hero-script { font-size: 32px; margin-bottom: 2px; }
+  .hero-title { font-size: clamp(40px, 12vw, 52px); margin-bottom: 14px; }
+  .actions { gap: 10px; margin-top: 20px; }
+  .rate-chip { margin-top: 18px; font-size: 13px; padding: 6px 16px 6px 6px; }
+  .rate-chip strong { font-size: 16px; padding: 7px 11px; }
+  .kb { --key: 19px; padding: 9px; gap: 5px; }
+  .kb-row { gap: 5px; }
+  .key { font-size: 6.5px; border-radius: 4px; }
+  .kb-hint { margin-top: 10px; font-size: 12px; }
+
+  .page-hero { padding: 32px 0 4px; }
+  .page-hero .script { font-size: 26px; }
+  .page-hero h1 { font-size: clamp(40px, 12vw, 52px); margin-bottom: 12px; }
+  .hero-big { font-size: 100px; }
+
+  .tile { aspect-ratio: 1 / 1; }
+  .tile .tname { top: 44%; }
+  .tile .tl, .tile .tr { font-size: 9.5px; top: 12px; letter-spacing: .16em; }
+  .tile .tb { font-size: 9px; padding-top: 10px; }
+
+  .stats .n { font-size: 36px; margin-bottom: 6px; }
+  .stats li { padding: 16px 14px; }
+  .stats .l { font-size: 12px; }
+
+  .combo-big { font-size: 90px; }
+  .step-n { font-size: 40px; margin-bottom: 6px; }
+
+  .term-bar { padding: 11px 14px; }
+  .term-bar span { font-size: 12px; }
+  .term-body { font-size: 12.5px; padding: 16px 14px 20px; gap: 9px; }
+
+  .score { font-size: 104px; }
+  .score-card { padding: 22px 18px; gap: 14px; }
+  .score-card h2 { font-size: 28px; margin-bottom: 8px; }
+  .score-card .btn { margin-top: 18px; }
+
+  .poster { min-height: 220px; padding: 24px 20px; gap: 24px; }
+  .poster .script { font-size: 48px; }
+  .poster p { font-size: 15px; }
+  .stack .card { padding: 18px 20px; }
+  .stack .card h3 { font-size: 22px; }
+  .social { padding: 18px 20px; }
+  .social strong { font-size: 22px; }
+  .social span { font-size: 13px; }
+
+  .post .pl, .post .pm, .post .pr { font-size: 8.5px; }
+  .post .pb { font-size: 10px; margin-top: 6px; }
+
+  .cta-card { padding: 22px 20px; gap: 14px; }
+  .cta-card h2 { font-size: 32px; margin-bottom: 8px; }
+  .cta-card .script { font-size: 26px; }
+  .cta-label { font-size: 12px; }
+  .chips { gap: 8px; }
+  .chips .chip { padding: 9px 13px; font-size: 11px; }
+
+  .faq summary { font-size: 17px; padding: 16px 16px; gap: 12px; }
+  .faq summary::after { width: 30px; height: 30px; font-size: 20px; }
+  .faq p { padding: 0 16px 18px; font-size: 14px; }
+
+  .book-form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 20px 16px; gap: 14px; }
+  .book-form label { font-size: 12.5px; gap: 6px; }
+  .book-form input, .book-form select { padding: 12px 13px; font-size: 16px; min-height: 48px; border-radius: 12px; }
+  .book-form label:nth-of-type(5) { grid-column: 1 / -1; }
+  .info-card { gap: 18px; }
+  .info-card a, .info-card .val { font-size: 24px; }
+  .info-card .label { font-size: 12.5px; }
+  .picked { font-size: 12.5px; padding: 8px 14px; }
+
+  .marquee { padding: 10px 0; }
+  .marquee-track { gap: 22px; }
+  .marquee-track span, .marquee--clubs span { font-size: 21px; }
+
+  .site-footer { padding: 44px 0 22px; }
+  .foot-top { gap: 18px; margin-bottom: 22px; }
+  .foot-label { font-size: 13px; }
+  .foot-phone { font-size: 32px; }
+  .pills { gap: 8px; }
+  .pills a { padding: 8px 14px; font-size: 13px; }
+  .foot-nav { margin-bottom: 56px; }
+  .foot-bottom { font-size: 12.5px; padding-top: 18px; }
+  .toast { font-size: 13.5px; padding: 12px 20px; }
+}
