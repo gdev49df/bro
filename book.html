@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Забронируйте место в компьютерном клубе BRO в Астане. Выберите точку и время, сообщение откроется в WhatsApp.">
+<meta name="theme-color" content="#050708">
+<title>Бронь — BRO Astana</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/oswald-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="BRO Astana, на главную">
+      <span class="brand-word">BRO</span><span class="brand-city">Astana</span>
+    </a>
+    <nav id="nav" class="nav" aria-label="Разделы">
+      <a href="index.html">Главная</a>
+      <a href="clubs.html">Точки</a>
+      <a href="packs.html">Пакеты</a>
+      <a href="about.html">О сети</a>
+      <a class="btn btn-primary" href="book.html">Забронировать</a>
+    </nav>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="script">Qosh keldin, bro</p>
+      <h1 class="display">Бронь</h1>
+      <p class="lead">Выбери точку и время. Откроется WhatsApp с готовым сообщением, останется нажать «отправить».</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(48px,6vw,80px)">
+    <div class="wrap book-grid">
+      <aside class="card info-card reveal">
+        <div>
+          <p class="label">Телефон и WhatsApp</p>
+          <a href="tel:+77713455196">+7 771 345 51 96</a>
+        </div>
+        <div>
+          <p class="label">Время работы</p>
+          <span class="val">24/7, без выходных</span>
+        </div>
+        <div>
+          <p class="label">Выбранная точка</p>
+          <span class="picked" id="picked" role="status">Точка: NCITY</span>
+        </div>
+      </aside>
+
+      <form class="card book-form reveal" id="bookForm" novalidate>
+        <label class="f-wide">Имя
+          <input name="name" type="text" autocomplete="given-name" placeholder="Как тебя зовут" required>
+        </label>
+        <label class="f-wide">Точка
+          <select name="club" required>
+            <option value="NCITY">NCITY</option>
+            <option value="BRAVO">BRAVO</option>
+            <option value="BAITEREK">BAITEREK</option>
+            <option value="GREENWICH">GREENWICH</option>
+            <option value="BOTANICHESKIY">BOTANICHESKIY</option>
+            <option value="EXPO">EXPO</option>
+            <option value="TURAN">TURAN</option>
+            <option value="Подскажите">Подскажите, где свободно</option>
+          </select>
+        </label>
+        <label>Дата
+          <input name="date" type="date" required>
+        </label>
+        <label>Время
+          <input name="time" type="time" value="20:00" required>
+        </label>
+        <label>Мест
+          <input name="seats" type="number" min="1" max="10" value="1" inputmode="numeric" required>
+        </label>
+        <button class="btn btn-primary f-wide" type="submit">Отправить в WhatsApp</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-word" aria-hidden="true">BRO</div>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <p class="foot-label">Бронирование и вопросы</p>
+        <a class="foot-phone" href="tel:+77713455196">+7 771 345 51 96</a>
+      </div>
+      <nav class="pills" aria-label="Соцсети">
+        <a href="https://instagram.com/brocyberastana" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@brocyberclub.kz" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://t.me/BROCYBERCUP" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://wa.me/77713455196" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://2gis.kz/astana/firm/70000001111810491" target="_blank" rel="noopener">2ГИС</a>
+      </nav>
+    </div>
+    <nav class="pills foot-nav" aria-label="Страницы">
+      <a href="index.html">Главная</a>
+      <a href="clubs.html">Точки</a>
+      <a href="packs.html">Пакеты</a>
+      <a href="about.html">О сети</a>
+      <a href="book.html">Бронь</a>
+    </nav>
+    <div class="foot-bottom">
+      <span>© 2026 BRO Astana</span>
+      <span>Создано @bauyrzhanov_12_</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>

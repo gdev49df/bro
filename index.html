@@ -4,27 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="BRO Astana — сеть компьютерных клубов в Астане. 8 точек, 24/7, топовое железо и выгодные цены.">
-<meta name="theme-color" content="#060809">
+<meta name="theme-color" content="#050708">
 <title>BRO Astana — компьютерные клубы 24/7</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/oswald-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-
 <a class="skip" href="#main">Перейти к содержимому</a>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="logo" href="#top" aria-label="BRO Astana, в начало">
-      <span class="logo-mark"><b>BRO</b><i>ASTANA</i></span>
+    <a class="brand" href="index.html" aria-label="BRO Astana, на главную">
+      <span class="brand-word">BRO</span><span class="brand-city">Astana</span>
     </a>
     <nav id="nav" class="nav" aria-label="Разделы">
-      <a href="#clubs">Точки</a>
-      <a href="#why">О сети</a>
-      <a href="#packs">Пакеты</a>
-      <a href="#reviews">Отзывы</a>
-      <a class="nav-cta" href="#book">Забронировать</a>
+      <a href="index.html" aria-current="page">Главная</a>
+      <a href="clubs.html">Точки</a>
+      <a href="packs.html">Пакеты</a>
+      <a href="about.html">О сети</a>
+      <a class="btn btn-primary" href="book.html">Забронировать</a>
     </nav>
     <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
       <span></span><span></span><span></span>
@@ -34,200 +35,104 @@
 
 <main id="main">
 
-  <!-- hero -->
   <section class="hero">
-    <div class="hero-stripes" aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="script hero-script">Bro Astana</p>
         <h1 class="display hero-title">
           <span>Твоя катка</span>
           <span>начинается</span>
-          <span class="outline">здесь</span>
+          <span class="glow-word">здесь</span>
         </h1>
         <p class="lead">Сеть компьютерных клубов в Астане. 8 точек, открыто 24/7, топовое железо и выгодные цены.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#book">Забронировать место</a>
-          <a class="btn btn-ghost" href="#clubs">Выбрать точку</a>
+          <a class="btn btn-primary" href="book.html">Забронировать место</a>
+          <a class="btn btn-ghost" href="clubs.html">Выбрать точку</a>
         </div>
         <a class="rate-chip" href="https://2gis.kz/astana/firm/70000001111810491/tab/reviews" target="_blank" rel="noopener">
           <strong>4.6</strong><span>538 оценок в 2ГИС</span>
         </a>
       </div>
-
       <div class="kb-stage" aria-hidden="true">
         <div class="kb" id="kb"></div>
         <p class="kb-hint">нажимай клавиши</p>
       </div>
     </div>
-    <div class="corner corner-tl" aria-hidden="true">BRO</div>
-    <div class="corner corner-tr" aria-hidden="true">CHILL</div>
-    <div class="corner corner-br" aria-hidden="true">GAME</div>
   </section>
 
-  <!-- marquee -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Твоя точка для игры</span><i></i><span class="out">24/7 во всех точках</span><i></i><span>Топовое железо</span><i></i><span class="out">Выгодные цены</span><i></i>
-      <span>Твоя точка для игры</span><i></i><span class="out">24/7 во всех точках</span><i></i><span>Топовое железо</span><i></i><span class="out">Выгодные цены</span><i></i>
-    </div>
+    <div class="marquee-track"><span>Твоя точка для игры</span><i></i><span class="alt">24/7 во всех точках</span><i></i><span>Топовое железо</span><i></i><span class="alt">Выгодные цены</span><i></i><span>Твоя точка для игры</span><i></i><span class="alt">24/7 во всех точках</span><i></i><span>Топовое железо</span><i></i><span class="alt">Выгодные цены</span><i></i></div>
   </div>
 
-  <!-- clubs -->
-  <section id="clubs" class="block">
+  <section class="section section--glow">
     <div class="wrap">
-      <header class="block-head">
+      <header class="sec-head reveal">
         <h2 class="display">Точки в Астане</h2>
         <p>Выбери клуб, и он сразу подставится в бронь.</p>
       </header>
-
-      <ul class="tiles">
-        <li><a class="tile t-teal" href="#book" data-club="NCITY" style="--fs:30cqi">
+      <ul class="tiles tiles--four">
+        <li class="reveal"><a class="card tile is-teal" href="book.html?club=NCITY" style="--fs:30cqi">
           <span class="tl">BRO</span><span class="tr">24/7</span>
           <span class="tname display">NCITY</span>
           <span class="tb">Забронировать</span>
         </a></li>
-        <li><a class="tile t-white" href="#book" data-club="BRAVO" style="--fs:28cqi">
+        <li class="reveal"><a class="card tile is-paper" href="book.html?club=BRAVO" style="--fs:28cqi">
           <span class="tl">BRO</span><span class="tr">24/7</span>
           <span class="tname display">BRAVO</span>
           <span class="tb">Забронировать</span>
         </a></li>
-        <li><a class="tile t-black" href="#book" data-club="BAITEREK" style="--fs:19cqi">
+        <li class="reveal"><a class="card tile is-dark" href="book.html?club=BAITEREK" style="--fs:19cqi">
           <span class="tl">BRO</span><span class="tr">24/7</span>
           <span class="tname display">BAITEREK</span>
           <span class="tb">Забронировать</span>
         </a></li>
-        <li><a class="tile t-teal" href="#book" data-club="GREENWICH" style="--fs:17cqi">
+        <li class="reveal"><a class="card tile is-teal" href="book.html?club=GREENWICH" style="--fs:17cqi">
           <span class="tl">BRO</span><span class="tr">24/7</span>
           <span class="tname display">GREENWICH</span>
           <span class="tb">Забронировать</span>
         </a></li>
-        <li><a class="tile t-black" href="#book" data-club="BOTANICHESKIY" style="--fs:12cqi">
-          <span class="tl">BRO</span><span class="tr">24/7</span>
-          <span class="tname display">BOTANICHESKIY</span>
-          <span class="tb">Забронировать</span>
-        </a></li>
-        <li><a class="tile t-white" href="#book" data-club="EXPO" style="--fs:34cqi">
-          <span class="tl">BRO</span><span class="tr">24/7</span>
-          <span class="tname display">EXPO</span>
-          <span class="tb">Забронировать</span>
-        </a></li>
-        <li><a class="tile t-teal" href="#book" data-club="TURAN" style="--fs:28cqi">
-          <span class="tl">BRO</span><span class="tr">24/7</span>
-          <span class="tname display">TURAN</span>
-          <span class="tb">Забронировать</span>
-        </a></li>
-        <li><a class="tile t-map" href="https://2gis.kz/astana/branches/70000001069280468" target="_blank" rel="noopener">
-          <span class="tl">BRO</span><span class="tr">2ГИС</span>
-          <span class="script tmap">все адреса</span>
-          <span class="tb">Открыть на карте</span>
-        </a></li>
       </ul>
+      <p class="reveal" style="margin-top:48px"><a class="btn btn-ghost" href="clubs.html">Все 8 точек</a></p>
     </div>
   </section>
 
-  <!-- why -->
-  <section id="why" class="block why">
-    <div class="wrap why-grid">
-      <div class="why-poster">
-        <p class="script">Welcome Bro</p>
-        <p class="why-text">Часть сети BRO — более 30 точек по Казахстану. В Астане 8 клубов, и каждый открыт круглосуточно.</p>
-      </div>
-      <ul class="why-list">
-        <li>
-          <span class="display">Топовое железо</span>
-          <p>Играй без лагов и просадок.</p>
-        </li>
-        <li>
-          <span class="display">Выгодные цены</span>
-          <p>Дневные пакеты и комбо с Red Bull.</p>
-        </li>
-        <li>
-          <span class="display">24/7 во всех точках</span>
-          <p>Приходи в любое время, клуб открыт.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- packs -->
-  <section id="packs" class="block">
+  <section class="section section--tint">
     <div class="wrap">
-      <header class="block-head">
-        <h2 class="display">Пакеты</h2>
-        <p>Актуальные цены и условия подскажем в WhatsApp.</p>
+      <header class="sec-head reveal">
+        <h2 class="display">Почему BRO</h2>
+        <p>Часть сети BRO — более 30 точек по Казахстану.</p>
       </header>
-      <div class="packs">
-        <article class="pack pack-day">
-          <p class="script">Играй днём</p>
-          <h3 class="display">Дневной пакет</h3>
-          <p>Выгодное время для долгих сессий. Скидки на дневной пакет бывают по акциям, уточняй условия.</p>
-          <a class="btn btn-dark" href="https://wa.me/77713455196?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82." target="_blank" rel="noopener">Узнать цену</a>
-        </article>
-        <article class="pack pack-combo">
-          <p class="combo-big display" aria-hidden="true">2+1</p>
-          <h3 class="display">Пакет и Red Bull</h3>
-          <p>Комбо из поста в инстаграме: пакет 2+1 и Red Bull. Условия уточняй у менеджера.</p>
-          <a class="btn btn-primary" href="https://wa.me/77713455196?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%BE%202%2B1%20%D0%B8%20Red%20Bull." target="_blank" rel="noopener">Узнать условия</a>
-        </article>
-        <article class="pack pack-more">
-          <h3 class="display">Остальные пакеты</h3>
-          <p>Другие пакеты и условия. Напиши, подберём под твою игру.</p>
-          <a class="btn btn-ghost" href="#book">Забронировать</a>
-        </article>
+      <div class="grid-3">
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+        <h3 class="display">Топовое железо</h3>
+        <p>Играй без лагов и просадок.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg></div>
+        <h3 class="display">Выгодные цены</h3>
+        <p>Дневные пакеты и комбо с Red Bull.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 class="display">24/7 во всех точках</h3>
+        <p>Приходи в любое время, клуб открыт.</p>
+      </article>
       </div>
     </div>
   </section>
 
-  <!-- reviews -->
-  <section id="reviews" class="block reviews">
-    <div class="wrap reviews-grid">
-      <div class="score display" aria-label="Оценка 4.6 из 5">4.6</div>
-      <div>
-        <h2 class="display">Нас оценили в 2ГИС</h2>
-        <p class="lead">538 оценок от игроков. Читай, что пишут про точки.</p>
-        <a class="btn btn-ghost" href="https://2gis.kz/astana/firm/70000001111810491/tab/reviews" target="_blank" rel="noopener">Читать отзывы</a>
+  <section class="section">
+    <div class="wrap">
+      <div class="card cta-card is-teal reveal">
+        <div>
+          <p class="script">Qosh keldin, bro</p>
+          <h2 class="display">Займи место</h2>
+          <p>Выбери точку и время. Откроется WhatsApp с готовым сообщением, останется нажать «отправить».</p>
+        </div>
+        <div class="cta-act"><a class="btn btn-ink" href="book.html">Забронировать</a></div>
       </div>
-    </div>
-  </section>
-
-  <!-- book -->
-  <section id="book" class="block book">
-    <div class="wrap book-grid">
-      <div class="book-intro">
-        <p class="script">Qosh keldin, bro</p>
-        <h2 class="display">Займи место</h2>
-        <p class="lead">Выбери точку и время. Откроется WhatsApp с готовым сообщением, останется нажать «отправить».</p>
-      </div>
-
-      <form class="book-form" id="bookForm" novalidate>
-        <label class="f-wide">Имя
-          <input name="name" type="text" autocomplete="given-name" placeholder="Как тебя зовут" required>
-        </label>
-        <label class="f-wide">Точка
-          <select name="club" id="clubSelect" required>
-            <option value="NCITY">NCITY</option>
-            <option value="BRAVO">BRAVO</option>
-            <option value="BAITEREK">BAITEREK</option>
-            <option value="GREENWICH">GREENWICH</option>
-            <option value="BOTANICHESKIY">BOTANICHESKIY</option>
-            <option value="EXPO">EXPO</option>
-            <option value="TURAN">TURAN</option>
-            <option value="Подскажите">Подскажите, где свободно</option>
-          </select>
-        </label>
-        <label>Дата
-          <input name="date" type="date" required>
-        </label>
-        <label>Время
-          <input name="time" type="time" value="20:00" required>
-        </label>
-        <label>Мест
-          <input name="seats" type="number" min="1" max="10" value="1" inputmode="numeric" required>
-        </label>
-        <button class="btn btn-primary f-wide" type="submit">Отправить в WhatsApp</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
     </div>
   </section>
 
@@ -235,27 +140,35 @@
 
 <footer class="site-footer">
   <div class="foot-word" aria-hidden="true">BRO</div>
-  <div class="wrap foot-grid">
-    <div>
-      <p class="foot-title display">Связаться</p>
-      <a class="foot-phone" href="tel:+77713455196">+7 771 345 51 96</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <p class="foot-label">Бронирование и вопросы</p>
+        <a class="foot-phone" href="tel:+77713455196">+7 771 345 51 96</a>
+      </div>
+      <nav class="pills" aria-label="Соцсети">
+        <a href="https://instagram.com/brocyberastana" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@brocyberclub.kz" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://t.me/BROCYBERCUP" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://wa.me/77713455196" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://2gis.kz/astana/firm/70000001111810491" target="_blank" rel="noopener">2ГИС</a>
+      </nav>
     </div>
-    <ul class="foot-links">
-      <li><a href="https://instagram.com/brocyberastana" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.tiktok.com/@brocyberclub.kz" target="_blank" rel="noopener">TikTok</a></li>
-      <li><a href="https://t.me/BROCYBERCUP" target="_blank" rel="noopener">Telegram</a></li>
-      <li><a href="https://wa.me/77713455196" target="_blank" rel="noopener">WhatsApp</a></li>
-      <li><a href="https://2gis.kz/astana/firm/70000001111810491" target="_blank" rel="noopener">2ГИС</a></li>
-    </ul>
-  </div>
-  <div class="wrap foot-bottom">
-    <span>© 2026 BRO Astana</span>
-    <span>Создано @bauyrzhanov_12_</span>
+    <nav class="pills foot-nav" aria-label="Страницы">
+      <a href="index.html">Главная</a>
+      <a href="clubs.html">Точки</a>
+      <a href="packs.html">Пакеты</a>
+      <a href="about.html">О сети</a>
+      <a href="book.html">Бронь</a>
+    </nav>
+    <div class="foot-bottom">
+      <span>© 2026 BRO Astana</span>
+      <span>Создано @bauyrzhanov_12_</span>
+    </div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script src="script.js"></script>
 </body>
 </html>
