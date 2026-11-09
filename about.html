@@ -10,10 +10,32 @@
 <link rel="preload" href="fonts/oswald-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+(function(){var d=document.documentElement;d.classList.add('js');
+try{var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm){if(!sessionStorage.getItem('broBooted')){d.classList.add('boot')}
+else if(sessionStorage.getItem('broNav')){d.classList.add('arrive');sessionStorage.removeItem('broNav')}}}catch(e){}
+setTimeout(function(){d.classList.add('ready')},9000)})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Перейти к содержимому</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-grid"></div>
+  <span class="corner c-tl">BRO</span><span class="corner c-tr">CHILL</span>
+  <span class="corner c-bl">ASTANA</span><span class="corner c-br">GAME</span>
+  <div class="loader-core">
+    <div class="glitch" data-text="BRO">BRO</div>
+    <p class="loader-sub">Astana // cyber club 24/7</p>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
+    <div class="loader-meta"><span id="loaderLine">booting BRO.os</span><b id="loaderPct">0%</b></div>
+  </div>
+</div>
+<div class="wipe" aria-hidden="true"><span>BRO</span></div>
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+<canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
@@ -39,8 +61,8 @@
     <div class="wrap">
       <div class="hero-big display" aria-hidden="true">30+</div>
       
-      <h1 class="display">О сети</h1>
-      <p class="lead">Часть сети BRO — более 30 точек по Казахстану. В Астане работают 8 клубов.</p>
+      <h1 class="display rise" style="--i:1">О сети</h1>
+      <p class="lead rise" style="--i:2">Часть сети BRO — более 30 точек по Казахстану. В Астане работают 8 клубов.</p>
     </div>
   </section>
 
@@ -48,10 +70,10 @@
   <section class="section section--tight">
     <div class="wrap">
       <ul class="stats">
-        <li class="reveal"><span class="n display">8</span><span class="l">точек в Астане</span></li>
-        <li class="reveal"><span class="n display">30+</span><span class="l">точек по Казахстану</span></li>
+        <li class="reveal"><span class="n display" data-count="8" data-dec="0" data-suffix="">8</span><span class="l">точек в Астане</span></li>
+        <li class="reveal"><span class="n display" data-count="30" data-dec="0" data-suffix="+">30+</span><span class="l">точек по Казахстану</span></li>
         <li class="reveal"><span class="n display">24/7</span><span class="l">открыто без выходных</span></li>
-        <li class="reveal"><span class="n display">4.6</span><span class="l">рейтинг в 2ГИС, 538 оценок</span></li>
+        <li class="reveal"><span class="n display" data-count="4.6" data-dec="1" data-suffix="">4.6</span><span class="l">рейтинг в 2ГИС, 538 оценок</span></li>
       </ul>
     </div>
   </section>
@@ -82,7 +104,7 @@
   <section class="section section--tint section--glow" style="padding-top:0" id="reviews">
     <div class="wrap">
       <div class="card score-card reveal">
-        <div class="score display" aria-label="Оценка 4.6 из 5">4.6</div>
+        <div class="score display" data-count="4.6" data-dec="1" aria-label="Оценка 4.6 из 5">4.6</div>
         <div>
           <h2 class="display">Нас оценили в 2ГИС</h2>
           <p class="lead">538 оценок от игроков. Читай, что пишут про точки.</p>
@@ -106,6 +128,10 @@
       </div>
     </div>
   </section>
+
+  <div class="marquee marquee--clubs" aria-hidden="true">
+    <div class="marquee-track"><span>NCITY</span><i></i><span class="alt">BRAVO</span><i></i><span>BAITEREK</span><i></i><span class="alt">GREENWICH</span><i></i><span>BOTANICHESKIY</span><i></i><span class="alt">EXPO</span><i></i><span>TURAN</span><i></i><span>NCITY</span><i></i><span class="alt">BRAVO</span><i></i><span>BAITEREK</span><i></i><span class="alt">GREENWICH</span><i></i><span>BOTANICHESKIY</span><i></i><span class="alt">EXPO</span><i></i><span>TURAN</span><i></i></div>
+  </div>
 
   <section class="section">
     <div class="wrap">
