@@ -8,59 +8,26 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const store = {
-    get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
-    set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
-  };
-
-  /* ============ boot loader (first visit of a session) ============ */
+  /* ============ curtain: black sheet swipes up, site resolves from blur ============ */
   const markReady = () => root.classList.add('ready');
-  const loader = $('#loader');
-
-  function runLoader() {
-    const bar = $('#loaderBar');
-    const pct = $('#loaderPct');
-    const line = $('#loaderLine');
-    const LINES = [
-      [0, 'booting BRO.os'],
-      [22, 'scanning clubs… 8/8'],
-      [48, 'loading hardware: top tier'],
-      [72, 'link: 24/7 online'],
-      [94, 'ready, bro']
-    ];
-    const MIN = 2000;
-    const MAX = 7000;
+  if (root.classList.contains('cv')) {
+    const MIN = 450;
     const t0 = performance.now();
-    let pageLoaded = document.readyState === 'complete';
-    window.addEventListener('load', () => { pageLoaded = true; });
-    let p = 0;
-    let lastLine = -1;
-
-    const finish = () => {
-      store.set('broBooted', '1');
-      root.classList.add('loaded');
+    let lifted = false;
+    const lift = () => {
+      if (lifted) return;
+      lifted = true;
+      root.classList.add('cv-out');
       markReady();
-      setTimeout(() => root.classList.remove('boot', 'loaded'), 1200);
+      setTimeout(() => root.classList.remove('cv', 'cv-out'), 1700);
     };
-
-    const tick = (now) => {
-      const t = now - t0;
-      const canFinish = (pageLoaded && t >= MIN) || t >= MAX;
-      const target = canFinish ? 100 : Math.min(92, (t / MIN) * 92);
-      p = Math.min(target, p + Math.max(0.35, (target - p) * 0.08));
-      bar.style.width = p.toFixed(1) + '%';
-      pct.textContent = Math.floor(p) + '%';
-      let idx = 0;
-      LINES.forEach((l, i) => { if (p >= l[0]) idx = i; });
-      if (idx !== lastLine) { lastLine = idx; line.textContent = LINES[idx][1]; }
-      if (p >= 100) { setTimeout(finish, 280); return; }
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
+    const whenLoaded = () => setTimeout(lift, Math.max(0, MIN - (performance.now() - t0)));
+    if (document.readyState === 'complete') whenLoaded();
+    else window.addEventListener('load', whenLoaded, { once: true });
+    setTimeout(lift, 5000); // failsafe
+  } else {
+    markReady();
   }
-
-  if (loader && root.classList.contains('boot')) runLoader();
-  else markReady();
 
   /* ============ smooth page transitions ============ */
   document.addEventListener('click', (e) => {
@@ -72,7 +39,6 @@
     if (!/\.html?$|\/$/.test(url.pathname)) return;
     if (url.pathname === location.pathname && url.search === location.search) return;
     e.preventDefault();
-    store.set('broNav', '1');
     root.classList.add('leaving');
     setTimeout(() => { location.href = a.href; }, 520);
   });
@@ -261,7 +227,7 @@
 
     if (!reduceMotion) {
       let inView = true;
-      const sync = () => (inView && !document.hidden ? startLoop(root.classList.contains('boot') ? 2600 : 700) : stopLoop());
+      const sync = () => (inView && !document.hidden ? startLoop(root.classList.contains('cv') ? 1800 : 700) : stopLoop());
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
           inView = entries[entries.length - 1].isIntersecting;
