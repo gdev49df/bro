@@ -108,8 +108,37 @@
       setTimeout(() => k.classList.remove('on'), ms);
     };
 
+    // wave of light across the keys, repeated with a pause between runs
+    const WAVE_PAUSE = 2200;
+    const maxCols = Math.max(...rows.map((keys) => keys.length));
+    const waveLength = (rows.length - 1) * 90 + (maxCols - 1) * 55 + 260;
+    let loopTimer = null;
+
+    const runWave = () => {
+      rows.forEach((keys, r) => keys.forEach((k, c) => setTimeout(() => flash(k, 260), r * 90 + c * 55)));
+      loopTimer = setTimeout(runWave, waveLength + WAVE_PAUSE);
+    };
+    const startLoop = (delay = 0) => {
+      if (loopTimer !== null) return;
+      loopTimer = setTimeout(runWave, delay);
+    };
+    const stopLoop = () => {
+      clearTimeout(loopTimer);
+      loopTimer = null;
+    };
+
     if (!reduceMotion) {
-      rows.forEach((keys, r) => keys.forEach((k, c) => setTimeout(() => flash(k, 260), 500 + r * 90 + c * 55)));
+      // run only while the keyboard is on screen and the tab is visible
+      let inView = true;
+      const sync = () => (inView && !document.hidden ? startLoop(500) : stopLoop());
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          inView = entries[entries.length - 1].isIntersecting;
+          sync();
+        }, { threshold: 0.1 }).observe(kb);
+      }
+      document.addEventListener('visibilitychange', sync);
+      sync();
     }
     kb.addEventListener('pointerover', (e) => { const k = e.target.closest('.key'); if (k) flash(k, 220); });
     kb.addEventListener('pointerdown', (e) => { const k = e.target.closest('.key'); if (k) flash(k, 260); });
