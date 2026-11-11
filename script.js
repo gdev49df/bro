@@ -36,7 +36,7 @@
     if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
     const url = new URL(a.href, location.href);
     if (url.protocol !== location.protocol || url.host !== location.host) return;
-    if (!/\.html?$|\/$/.test(url.pathname)) return;
+    if (!/(\.html?|\/|\/[^./]+)$/.test(url.pathname)) return;
     if (url.pathname === location.pathname && url.search === location.search) return;
     e.preventDefault();
     root.classList.add('leaving');
@@ -409,4 +409,55 @@
       showToast('Сообщение готово в WhatsApp');
     });
   }
+
+  /* ============ faq: smooth open/close, accordion ============ */
+  $$('.faq-list').forEach((list) => {
+    const items = $$('.faq', list);
+    const EASE = 'cubic-bezier(.22,1,.36,1)';
+    items.forEach((d) => {
+      const s = $('summary', d);
+      const a = $('p', d);
+      let anim = null;
+      d.classList.toggle('is-open', d.open);
+      const done = () => { anim = null; d.style.height = ''; d.style.overflow = ''; };
+      const border = () => d.offsetHeight - d.clientHeight;
+      const openIt = () => {
+        d.classList.add('is-open');
+        if (reduceMotion) { d.open = true; return; }
+        if (anim) anim.cancel();
+        d.style.overflow = 'hidden';
+        const from = d.offsetHeight;
+        d.style.height = from + 'px';
+        d.open = true;
+        const to = d.scrollHeight + border();
+        anim = d.animate({ height: [from + 'px', to + 'px'] }, { duration: 520, easing: EASE });
+        a.animate({ opacity: [0, 1], transform: ['translateY(-10px)', 'none'] }, { duration: 460, delay: 90, easing: EASE, fill: 'backwards' });
+        anim.onfinish = done;
+        anim.oncancel = done;
+      };
+      const closeIt = () => {
+        d.classList.remove('is-open');
+        if (reduceMotion || !d.open) { d.open = false; return; }
+        if (anim) anim.cancel();
+        d.style.overflow = 'hidden';
+        const from = d.offsetHeight;
+        const to = s.offsetHeight + border();
+        d.style.height = from + 'px';
+        a.animate({ opacity: [1, 0], transform: ['none', 'translateY(-6px)'] }, { duration: 220, easing: 'ease-out', fill: 'forwards' });
+        anim = d.animate({ height: [from + 'px', to + 'px'] }, { duration: 420, easing: EASE });
+        anim.onfinish = () => { d.open = false; a.getAnimations().forEach((x) => x.cancel()); done(); };
+        anim.oncancel = done;
+      };
+      s.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (d.classList.contains('is-open')) {
+          closeIt();
+        } else {
+          items.forEach((o) => { if (o !== d && o.classList.contains('is-open')) o.querySelector('summary').click(); });
+          openIt();
+        }
+      });
+    });
+  });
+
 })();

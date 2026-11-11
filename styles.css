@@ -501,9 +501,14 @@ svg { display: block; }
   content: "+"; flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%;
   font: 400 26px/1 var(--f-body); color: var(--teal); border: 1px solid var(--line-teal); transition: transform .35s var(--ease), background .3s;
 }
-.faq[open] summary::after { transform: rotate(45deg); background: rgba(27, 232, 211, .12); }
-.faq p { padding: 0 32px 28px; max-width: 62ch; animation: faq-in .4s var(--ease) both; }
-@keyframes faq-in { from { opacity: 0; transform: translateY(-8px); } }
+.faq p { padding: 0 32px 28px; max-width: 62ch; }
+.faq summary { transition: color .3s; }
+.faq summary:hover::after { background: rgba(27, 232, 211, .1); transform: scale(1.08); }
+.faq.is-open { border-color: rgba(27, 232, 211, .6); box-shadow: var(--glow-sm); }
+.faq.is-open summary { color: var(--teal); }
+.faq.is-open summary::after { transform: rotate(135deg); background: var(--teal); color: var(--ink); border-color: var(--teal); }
+.faq[open]:not(.is-open) summary::after { transform: none; background: transparent; }
+.faq summary:focus-visible { outline: 2px solid var(--teal); outline-offset: -4px; border-radius: var(--r-card); }
 
 @media (max-width: 1000px) {
   .faq-list { grid-template-columns: 1fr; }

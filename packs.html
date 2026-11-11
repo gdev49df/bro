@@ -13,7 +13,8 @@
 <script>
 (function(){var d=document.documentElement;d.classList.add('js');
 try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('cv')}catch(e){}
-setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')},9000)})();
+setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')},9000);
+try{var p=location.pathname;if(/\.html$/.test(p))history.replaceState(null,'',p.replace(/index\.html$/,'').replace(/\.html$/,'')+location.search+location.hash)}catch(e){}})();
 </script>
 </head>
 <body>
@@ -27,15 +28,15 @@ setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="index.html" aria-label="BRO Astana, на главную">
+    <a class="brand" href="./" aria-label="BRO Astana, на главную">
       <span class="brand-word">BRO</span><span class="brand-city">Astana</span>
     </a>
     <nav id="nav" class="nav" aria-label="Разделы">
-      <a href="index.html">Главная</a>
-      <a href="clubs.html">Точки</a>
-      <a href="packs.html" aria-current="page">Пакеты</a>
-      <a href="about.html">О сети</a>
-      <a class="btn btn-primary" href="book.html">Забронировать</a>
+      <a href="./">Главная</a>
+      <a href="clubs">Точки</a>
+      <a href="packs" aria-current="page">Пакеты</a>
+      <a href="about">О сети</a>
+      <a class="btn btn-primary" href="book">Забронировать</a>
     </nav>
     <button type="button" class="burger" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
       <span></span><span></span><span></span>
@@ -73,7 +74,7 @@ setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')
         <article class="card pack reveal">
           <h3 class="display">Другие пакеты</h3>
           <p>Нужен другой формат? Напиши, подберём под твою игру и компанию.</p>
-          <a class="btn btn-ghost" href="book.html">Забронировать</a>
+          <a class="btn btn-ghost" href="book">Забронировать</a>
         </article>
       </div>
     </div>
@@ -90,7 +91,7 @@ setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')
         <article class="card reveal"><div class="step-n display">2</div><h3 class="display">Укажи время</h3><p>Дата, время и количество мест, остальное мы уточним в чате.</p></article>
         <article class="card reveal"><div class="step-n display">3</div><h3 class="display">Отправь в WhatsApp</h3><p>Откроется готовое сообщение, останется нажать «отправить».</p></article>
       </div>
-      <p class="reveal" style="margin-top:48px"><a class="btn btn-primary" href="book.html">Забронировать место</a></p>
+      <p class="reveal" style="margin-top:48px"><a class="btn btn-primary" href="book">Забронировать место</a></p>
     </div>
   </section>
 
@@ -128,11 +129,11 @@ setTimeout(function(){d.classList.add('ready');d.classList.remove('cv','cv-out')
       </nav>
     </div>
     <nav class="pills foot-nav" aria-label="Страницы">
-      <a href="index.html">Главная</a>
-      <a href="clubs.html">Точки</a>
-      <a href="packs.html">Пакеты</a>
-      <a href="about.html">О сети</a>
-      <a href="book.html">Бронь</a>
+      <a href="./">Главная</a>
+      <a href="clubs">Точки</a>
+      <a href="packs">Пакеты</a>
+      <a href="about">О сети</a>
+      <a href="book">Бронь</a>
     </nav>
     <div class="foot-bottom">
       <span>© 2026 BRO Astana</span>
